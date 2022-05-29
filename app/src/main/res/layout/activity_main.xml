@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/temperatureBox"
+        android:layout_width="160dp"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        android:layout_marginTop="240dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/humidityBox">
+
+        <TextView
+            android:id="@+id/txtTemperatureTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTemperatureValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Value"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/humidityBox"
+        android:layout_width="160dp"
+        android:layout_height="65dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temperatureBox"
+        android:layout_marginBottom="240dp">
+
+        <TextView
+            android:id="@+id/txtHumidityTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Humidity"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtHumidityValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Value"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnStartFan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Fan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/humidityBox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

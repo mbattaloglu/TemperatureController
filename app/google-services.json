@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "920302194708",
+    "project_id": "temperaturecontroller-c126f",
+    "storage_bucket": "temperaturecontroller-c126f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920302194708:android:824e780d60bb9d21051701",
+        "android_client_info": {
+          "package_name": "com.example.temperature"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920302194708-q7g4lln0ca2nnarat23kmb0cdv3safd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsCzhAbk2Kx6cIKZpBrrMborrAQbZkfaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920302194708-q7g4lln0ca2nnarat23kmb0cdv3safd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
