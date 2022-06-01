@@ -26,27 +26,33 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtTemperatureValue;
     TextView txtHumidityValue;
+    TextView txtEngineStatus;
 
     Button btnStartFan;
 
     FirebaseDatabase database;
     DatabaseReference mainReference;
 
-
+    Value value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        value = new Value(30, 40, false);
+
         txtTemperatureValue = findViewById(R.id.txtTemperatureValue);
         txtHumidityValue = findViewById(R.id.txtHumidityValue);
+        txtEngineStatus = findViewById(R.id.txtEngineStatusValue);
 
         btnStartFan = findViewById(R.id.btnStartFan);
 
         database = FirebaseDatabase.getInstance();
         mainReference = database.getReference();
 
+
+        database.getReference("values").push().setValue(value);
 
         DatabaseReference ref = database.getReference().child("values");
         ref.addValueEventListener(new ValueEventListener() {
@@ -57,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                     txtTemperatureValue.setText(value.getTemperature() + DEGREE_SIGN);
                     txtHumidityValue.setText(PERCENTAGE_SIGN + value.getHumidity());
+                    txtEngineStatus.setText(value.getIsEngineWorking() ? "ON" : "OFF");
                 }
             }
 
@@ -69,9 +76,12 @@ public class MainActivity extends AppCompatActivity {
         btnStartFan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isEngineWorking = !isEngineWorking;
-                String text = isEngineWorking ? "Fan Started" : "Fan Stopped";
+                value.setIsEngineWorking(!value.getIsEngineWorking());
+                String text = value.getIsEngineWorking() ? "Fan Started" : "Fan Stopped";
 
+                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("values");
+                reference.removeValue();
+                reference.push().setValue(value);
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
             }
         });
