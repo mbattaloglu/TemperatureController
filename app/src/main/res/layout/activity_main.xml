@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/txtWifiInformation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="8dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="8dp"
+        android:text="WiFi"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/temperatureBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/temperatureBox"
         android:layout_width="160dp"
         android:layout_height="65dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/humidityBox"
-        android:layout_marginTop="100dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtTemperatureTitle"
@@ -41,7 +56,7 @@
         android:layout_width="160dp"
         android:layout_height="65dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/engineBox"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/temperatureBox">
@@ -64,45 +79,5 @@
             android:textSize="20sp" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/engineBox"
-        android:layout_width="160dp"
-        android:layout_height="65dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/btnStartFan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/humidityBox"
-        android:layout_marginBottom="20dp">
-
-        <TextView
-            android:id="@+id/txtEngineStatusTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Engine Status"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtEngineStatusValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Value"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnStartFan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start Fan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/humidityBox"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

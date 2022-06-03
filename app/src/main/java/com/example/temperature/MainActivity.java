@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,13 +23,14 @@ public class MainActivity extends AppCompatActivity {
     static String PERCENTAGE_SIGN = "%";
     static String DEGREE_SIGN = "º";
 
-    boolean isEngineWorking;
+    //boolean isEngineWorking;
 
     TextView txtTemperatureValue;
     TextView txtHumidityValue;
+    TextView txtWifiInformation;
     TextView txtEngineStatus;
 
-    Button btnStartFan;
+    //Button btnStartFan;
 
     FirebaseDatabase database;
     DatabaseReference mainReference;
@@ -40,21 +42,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        value = new Value(30, 40, false);
-
         txtTemperatureValue = findViewById(R.id.txtTemperatureValue);
         txtHumidityValue = findViewById(R.id.txtHumidityValue);
-        txtEngineStatus = findViewById(R.id.txtEngineStatusValue);
+        txtWifiInformation = findViewById(R.id.txtWifiInformation);
+        //txtEngineStatus = findViewById(R.id.txtEngineStatusValue);
 
-        btnStartFan = findViewById(R.id.btnStartFan);
+        //btnStartFan = findViewById(R.id.btnStartFan);
 
         database = FirebaseDatabase.getInstance();
         mainReference = database.getReference();
 
 
-        database.getReference("values").push().setValue(value);
 
-        DatabaseReference ref = database.getReference().child("values");
+        DatabaseReference ref = database.getReference();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                     txtTemperatureValue.setText(value.getTemperature() + DEGREE_SIGN);
                     txtHumidityValue.setText(PERCENTAGE_SIGN + value.getHumidity());
-                    txtEngineStatus.setText(value.getIsEngineWorking() ? "ON" : "OFF");
+                    txtWifiInformation.setText("WiFi:" + value.getWifi());
                 }
             }
 
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
         btnStartFan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,6 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 reference.push().setValue(value);
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 }

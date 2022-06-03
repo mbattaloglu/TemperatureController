@@ -1,41 +1,41 @@
 package com.example.temperature;
 
 public class Value {
-    private int temperature;
-    private int humidity;
-    private boolean isEngineWorking;
+    private float temperature;
+    private float humidity;
+    private String wifi;
 
-    public Value(int temperature, int humidity, boolean isEngineWorking) {
+    public Value(int temperature, int humidity, String wifi) {
         this.temperature = temperature;
         this.humidity = humidity;
-        this.isEngineWorking = isEngineWorking;
+        this.wifi = wifi;
     }
 
     public Value(){
 
     }
 
-    public boolean getIsEngineWorking() {
-        return isEngineWorking;
-    }
-
-    public void setIsEngineWorking(boolean engineWorking) {
-        isEngineWorking = engineWorking;
-    }
-
-    public int getTemperature() {
+    public float getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
 
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
+    }
+
+    public String getWifi() {
+        return wifi;
+    }
+
+    public void setWifi(String wifi) {
+        this.wifi = wifi;
     }
 }
